@@ -27,9 +27,9 @@ if (Meteor.isServer) {
 Meteor.methods({
   'dailytotals.insert'(dailytotal) {
     check(dailytotal, {
-      text: String,
-      dueDate: String,
+      date: String,
       category: String,
+      total: String,
     });
 
     // Make sure the user is logged in before inserting a dailytotal
@@ -45,8 +45,8 @@ Meteor.methods({
   'dailytotals.update'(dailytotal) {
     check(dailytotal, {
       _id: String,
-      text: String,
-      dueDate: String,
+      date: String,
+      total: String,
       category: String,
     });
 
@@ -108,11 +108,11 @@ Dailytotals.deny({
 });
 
 Dailytotals.schema = new SimpleSchema({
-  text: {
+  total: {
     type: String,
-    label: 'The text of the dailytotal.',
+    label: 'The totsl for today.',
   },
-  dueDate: {
+  date: {
     type: String,
     label: 'The due date of the dailytotal.',
   },

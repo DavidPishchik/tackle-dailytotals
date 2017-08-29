@@ -43,7 +43,7 @@ class DailytotalList extends Component {
   renderDailytotals() {
     let filteredDailytotals = this.props.dailytotals.filter(
       (dailytotal) => {
-        return dailytotal.text.indexOf(this.state.search) !== -1;
+        return dailytotal.date.indexOf(this.state.search) !== -1;
       }
     );
 
@@ -107,7 +107,7 @@ class DailytotalList extends Component {
           </div>
         </div>
         <div className="container">
-          <ul>{this.renderDailytotals()}</ul>
+          <ul className="dailytotalslist">{this.renderDailytotals()}</ul>
         </div>
       </div>
   );

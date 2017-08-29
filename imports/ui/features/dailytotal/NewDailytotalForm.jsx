@@ -11,16 +11,16 @@ export default class NewDailytotalForm extends Component {
 
     // Find the text field via the React ref
     const dailytotal = {
-      text: this.text.value.trim(),
-      dueDate: this.dueDate.value.trim(),
+      total: this.total.value.trim(),
+      date: this.date.value.trim(),
       category: this.category.value.trim(),
     };
 
     Meteor.call('dailytotals.insert', dailytotal);
 
-    this.text.value = '';
+    this.total.value = '';
     this.category.value = '';
-    this.dueDate.value = '';
+    this.date.value = '';
 
   }
 
@@ -31,14 +31,14 @@ export default class NewDailytotalForm extends Component {
           <div className="col-md-5">
            <input
              type="text"
-             ref={text => (this.text = text)}
+             ref={total => (this.total = total)}
              placeholder="Type to add new dailytotal"
            />
           </div>
           <div className="col-md-3">
            <input
              type="text"
-             ref={dueDate => (this.dueDate = dueDate)}
+             ref={date => (this.date = date)}
              placeholder="Type to add due date for dailytotal"
            />
           </div>

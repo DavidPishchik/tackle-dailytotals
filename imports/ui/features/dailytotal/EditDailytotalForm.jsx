@@ -18,8 +18,8 @@ export default class EditDailytotalForm extends Component {
     // Find the text field via the React ref
     const dailytotal = {
       _id: this.props.dailytotal._id,
-      text: this.text.value.trim(),
-      dueDate: this.dueDate.value.trim(),
+      total: this.total.value.trim(),
+      date: this.date.value.trim(),
       category: this.category.value.trim(),
     };
 
@@ -31,9 +31,9 @@ export default class EditDailytotalForm extends Component {
       }
     });
     this.handleImportButton(this);
-    this.text.value = '';
+    this.total.value = '';
     this.category.value = '';
-    this.dueDate.value =  '';
+    this.date.value =  '';
 
   }
 
@@ -49,18 +49,18 @@ export default class EditDailytotalForm extends Component {
                 <input
                   type="text"
                   name="text"
-                  ref={text => (this.text = text)}
-                  defaultValue={dailytotal && this.props.dailytotal.text}
+                  ref={total => (this.total = total)}
+                  defaultValue={dailytotal && this.props.dailytotal.total}
                   placeholder="text"
                 />
             </div>
             <div className="col-md-3">
                 <input
                   type="text"
-                  name="dueDate"
-                  ref={dueDate => (this.dueDate = dueDate)}
-                  defaultValue={dailytotal && this.props.dailytotal.dueDate}
-                  placeholder="dueDate"
+                  name="date"
+                  ref={date => (this.date = date)}
+                  defaultValue={dailytotal && this.props.dailytotal.date}
+                  placeholder="date"
                 />
             </div>
             <div className="col-md-3">

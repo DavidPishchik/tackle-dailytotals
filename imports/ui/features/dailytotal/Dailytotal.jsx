@@ -70,9 +70,8 @@ export default class Dailytotal extends Component {
             ) : ''}
 
             <span className="text">
-              <strong>{this.props.dailytotal.username}</strong>:
-              {this.props.dailytotal.text}  -
-              Category: {this.props.dailytotal.category} [Due Date: {this.props.dailytotal.dueDate}]
+              checked by: <strong>{this.props.dailytotal.username}</strong>: Total: ${this.props.dailytotal.total}  -
+              Category: {this.props.dailytotal.category} [Due Date: {this.props.dailytotal.date}]
             </span>
           </div>
           <div className="toggleEdit">

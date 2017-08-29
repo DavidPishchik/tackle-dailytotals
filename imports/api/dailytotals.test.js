@@ -15,7 +15,6 @@ if (Meteor.isServer) {
       beforeEach(() => {
         Dailytotals.remove({});
         dailytotalId = Dailytotals.insert({
-          text: 'test dailytotal',
           createdAt: new Date(),
           owner: userId,
           username: 'tmeasday',
