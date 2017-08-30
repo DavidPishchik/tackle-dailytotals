@@ -32,12 +32,12 @@ export default class NewDailytotalForm extends Component {
            <input
              type="text"
              ref={total => (this.total = total)}
-             placeholder="Type to add new dailytotal"
+             placeholder="total"
            />
           </div>
           <div className="col-md-3">
            <input
-             type="text"
+             type="date"
              ref={date => (this.date = date)}
              placeholder="Type to add due date for dailytotal"
            />
