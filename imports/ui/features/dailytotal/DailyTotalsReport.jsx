@@ -5,7 +5,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Button } from 'react-bootstrap';
 
 import { Dailytotals } from '../../../api/dailytotals.js';
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Bar, Line } from 'react-chartjs-2';
 
 class DailyTotalsReport extends Component {
   constructor(props) {
@@ -52,9 +52,16 @@ class DailyTotalsReport extends Component {
     return (
       <div className="container">
         <h4> total days opened ({this.props.incompleteCount})</h4>
-        <Doughnut ref='chart' data={data} />
-      </div>
+        <div className="col-md-6">
+            <Doughnut ref='chart' data={data} />
+        </div>
+        <div className="col-md-6">
+          <Bar data={data} width={100} height={50}
+               options={{	maintainAspectRatio: false }}/>
+        </div>
 
+        <Line data={data} />
+      </div>
     );
   }
 }
