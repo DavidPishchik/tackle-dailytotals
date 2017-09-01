@@ -18,6 +18,8 @@ class DailytotalList extends Component {
     };
   }
 
+
+
   updateSearch(event) {
     this.setState({ search: event.target.value.substr(0, 20) });
   }
@@ -66,6 +68,11 @@ class DailytotalList extends Component {
   }
 
   render() {
+      {console.log(this.state.search)}
+        {console.log(this.props.fromdate)}
+
+
+
     return (
       <div className="container">
         <div className="row">
@@ -100,12 +107,25 @@ class DailytotalList extends Component {
           <div className="row">
             <div className="col-md-12">
               <form>
-                <input type="text" value={this.state.search}
-                       onChange={this.updateSearch.bind(this)} placeholder="search"/>
+
+                From:<input
+                  type="date"
+                  onChange={this.updateSearch.bind(this)}
+                  ref={date => (this.date = date)}
+                  value={this.state.search}
+                  placeholder="Type to add due date for dailytotal"
+                />
+                Untill:<input
+                  type="date"
+                  ref={date => (this.date = date)}
+                  value={this.state.search}
+                  placeholder="Type to add due date for dailytotal"
+                />
               </form>
             </div>
           </div>
         </div>
+        {this.props.fromdate}
         <div className="container">
           <ul className="dailytotalslist">{this.renderDailytotals()}</ul>
         </div>
@@ -122,6 +142,7 @@ export default createContainer(() => {
   Meteor.subscribe('dailytotals');
 
   return {
+    fromdate: Dailytotals.find({date: {$lt: '2017-10-12'}}).count(),
     dailytotals: Dailytotals.find({}, { sort: { createdAt: -1 } }).fetch(),
     incompleteCount: Dailytotals.find({ checked: { $ne: true } }).count(),
     criticalCount: Dailytotals.find({ category: 'Critical' }).count(),

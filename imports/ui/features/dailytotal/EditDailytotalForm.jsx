@@ -56,7 +56,7 @@ export default class EditDailytotalForm extends Component {
             </div>
             <div className="col-md-3">
                 <input
-                  type="text"
+                  type="date"
                   name="date"
                   ref={date => (this.date = date)}
                   defaultValue={dailytotal && this.props.dailytotal.date}
